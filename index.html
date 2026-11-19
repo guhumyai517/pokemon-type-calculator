@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <meta name="description" content="A friendly Pokémon type calculator for checking weaknesses, resistances, and immunities." />
+    <title>TypeDex — Pokémon Type Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="TypeDex home"><span class="brand-ball"><i></i></span><span>Type<span class="brand-red">Dex</span></span></a>
+        <div class="header-actions"><div class="header-note"><span class="status-dot"></span> TRAINER TOOLKIT</div><button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-text">Dark mode</span></button></div>
+      </header>
+      <main>
+        <section class="intro"><div class="eyebrow"><span>FIELD GUIDE</span><span class="eyebrow-line"></span><span>TYPE MATCHUPS</span></div><h1>Know your <span>matchup.</span></h1><p>Pick a Pokémon’s type to reveal its battle profile.</p></section>
+        <section class="calculator" aria-labelledby="selector-title">
+          <div class="card-head"><div><div class="section-label">01 <span>— SELECT YOUR TYPE</span></div><h2 id="selector-title">What are we working with?</h2></div><span class="head-icon" aria-hidden="true">✳</span></div>
+          <div class="slot-row">
+            <div class="type-slot"><span class="slot-label">PRIMARY TYPE <span class="required">REQUIRED</span></span><button id="primarySlot" class="slot-button" type="button" aria-label="Choose primary type"><span class="slot-plus">＋</span><span>Choose a type</span><span class="slot-chevron">⌄</span></button></div>
+            <div class="slot-join" aria-hidden="true">＋</div>
+            <div class="type-slot"><span class="slot-label">SECONDARY TYPE <span class="optional">OPTIONAL</span></span><button id="secondarySlot" class="slot-button" type="button" aria-label="Choose secondary type"><span class="slot-plus">＋</span><span>Add another type</span><span class="slot-chevron">⌄</span></button></div>
+          </div>
+          <div class="type-picker-wrap"><div class="picker-caption"><span>CHOOSE FROM 18 TYPES</span><span id="pickerHint">TAP TO SELECT</span></div><div id="typeGrid" class="type-grid" role="group" aria-label="Pokémon types"></div></div>
+          <div class="card-foot"><span class="foot-mark">◉</span><span>Choose two different types for a dual-type profile.</span><button id="clearButton" class="clear-button" type="button">CLEAR ALL <span>↗</span></button></div>
+        </section>
+        <section id="results" class="results" aria-live="polite" aria-labelledby="results-title">
+          <div class="results-title-row"><div><div class="section-label">02 <span>— DEFENSIVE PROFILE</span></div><h2 id="results-title">Battle breakdown</h2></div><div id="profileBadge" class="profile-badge">AWAITING TYPE</div></div>
+          <div id="emptyState" class="empty-state"><span class="empty-orbit">✳</span><div><strong>Your profile is waiting.</strong><p>Select a type above to see what hits hard — and what bounces right off.</p></div><span class="empty-arrow">↑</span></div>
+          <div id="resultGroups" class="result-groups" hidden></div><div id="normalGroup" class="normal-group" hidden></div>
+          <div class="legend"><span><i class="legend-dot weak"></i> Weakness</span><span><i class="legend-dot resist"></i> Resistance</span><span><i class="legend-dot immune"></i> Immune</span><span class="legend-note">MULTIPLIERS PER INCOMING MOVE</span></div>
+        </section>
+      </main>
+      <footer><span>TYPEDEX <span class="footer-dot">●</span> A TRAINER’S FIELD GUIDE</span><a href="https://sg.portal-pokemon.com/game/type-chart/" target="_blank" rel="noreferrer">TYPE CHART SOURCE ↗</a></footer>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
